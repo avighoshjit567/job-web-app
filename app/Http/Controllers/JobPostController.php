@@ -33,4 +33,10 @@ class JobPostController extends Controller
             ->rawColumns(['action'])
             ->make(true);
     }
+
+    // function for displaying the job post list
+    public function jobPostAdd()
+    {
+        return view('job-post.job-post-add');
+    }
 }

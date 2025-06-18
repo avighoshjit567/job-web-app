@@ -21,6 +21,7 @@ Route::middleware(['auth','verified'])->group(function () {
 Route::middleware(['auth','verified'])->group(function () {
     Route::get('/job-post/list', [JobPostController::class, 'jobPostList'])->name('job.post.list');
     Route::get('/job-post/list-data', [JobPostController::class, 'jobPostListData'])->name('job.post.list.data');
+    Route::get('/job-post/add', [JobPostController::class, 'jobPostAdd'])->name('job.post.add');
 });
 
 // Website routes
