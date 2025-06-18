@@ -3,11 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JobPostController;
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('home');
-});
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -25,5 +22,10 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/job-post/list', [JobPostController::class, 'jobPostList'])->name('job.post.list');
     Route::get('/job-post/list-data', [JobPostController::class, 'jobPostListData'])->name('job.post.list.data');
 });
+
+// Website routes
+Route::get('/', [FrontendController::class, 'home'])->name('home');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
 
 require __DIR__.'/auth.php';
