@@ -17,7 +17,7 @@
         <div class="container">
             <div class="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
                 <div class="lg:col-span-7 md:col-span-6">
-                    <img src="assets/images/svg/contact.svg" alt="">
+                    <img src="{{ asset('web-assets/images/svg/contact.svg') }}" alt="">
                 </div>
 
                 <div class="lg:col-span-5 md:col-span-6">
