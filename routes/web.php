@@ -22,6 +22,12 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/job-post/list', [JobPostController::class, 'jobPostList'])->name('job.post.list');
     Route::get('/job-post/list-data', [JobPostController::class, 'jobPostListData'])->name('job.post.list.data');
     Route::get('/job-post/add', [JobPostController::class, 'jobPostAdd'])->name('job.post.add');
+    Route::post('/job-post/store', [JobPostController::class, 'jobPostStore'])->name('job.post.store');
+    
+    Route::get('/job-category/add', [JobPostController::class, 'jobCategoryAdd'])->name('job.category.add');
+    Route::post('/job-category/store', [JobPostController::class, 'jobCategoryStore'])->name('job.category.store');
+    Route::get('/job-category/list', [JobPostController::class, 'jobCategoryList'])->name('job.category.list');
+    Route::get('/job-category/list-data', [JobPostController::class, 'jobCategoryListData'])->name('job.category.list.data');
 });
 
 // Website routes

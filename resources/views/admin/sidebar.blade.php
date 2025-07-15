@@ -54,6 +54,19 @@
                             </svg>
                             <svg class="fill-icon">
                                 <use href="{{ asset('admin-assets/svg/icon-sprite.svg') }}#fill-project"></use>
+                            </svg><span>Job Category </span></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{{ route('job.category.add') }}">Create New Job Category</a></li>
+                            <li><a href="{{ route('job.category.list') }}">Job Category List</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-list"><i class="fa fa-thumb-tack"> </i><a class="sidebar-link sidebar-title"
+                            href="#">
+                            <svg class="stroke-icon">
+                                <use href="{{ asset('admin-assets/svg/icon-sprite.svg') }}#stroke-project"></use>
+                            </svg>
+                            <svg class="fill-icon">
+                                <use href="{{ asset('admin-assets/svg/icon-sprite.svg') }}#fill-project"></use>
                             </svg><span>Job Post </span></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{ route('job.post.add') }}">Create New Job Post</a></li>

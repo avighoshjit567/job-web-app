@@ -10,19 +10,20 @@
     <meta name="keywords"
         content="admin template, Zono admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
+    <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
     <link rel="icon" href="{{ asset('admin-assets/images/favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('admin-assets/images/favicon.png') }}" type="image/x-icon">
     <title>Zono - Premium Admin Template</title>
     <!-- Google font -->
-    <link rel="preconnect" href="../../../fonts.googleapis.com/index.html">
+    <!-- <link rel="preconnect" href="../../../fonts.googleapis.com/index.html">
     <link rel="preconnect" href="../../../fonts.gstatic.com/index.html" crossorigin="">
     <link
         href="../../../fonts.googleapis.com/css2e3ea.css?family=Nunito+Sans:wght@200;300;400;600;700;800;900&amp;display=swap"
         rel="stylesheet">
     <link
         href="../../../fonts.googleapis.com/css8807.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin-assets/css/font-awesome.css') }}">
+        rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('admin-assets/css/font-awesome.css') }}"> -->
     <!-- ico-font-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin-assets/css/vendors/icofont.css') }}">
     <!-- Themify icon-->
@@ -110,22 +111,22 @@
     <script src="{{ asset('admin-assets/js/chart/morris-chart/raphael.js') }}"></script>
     <script src="{{ asset('admin-assets/js/chart/morris-chart/morris.js') }}"></script>
     <script src="{{ asset('admin-assets/js/chart/morris-chart/prettify.min.js') }}"></script>
-    <script src="{{ asset('admin-assets/js/chart/apex-chart/apex-chart.js') }}"></script>
+    <!-- <script src="{{ asset('admin-assets/js/chart/apex-chart/apex-chart.js') }}"></script> -->
     <script src="{{ asset('admin-assets/js/chart/apex-chart/stock-prices.js') }}"></script>
     <script src="{{ asset('admin-assets/js/chart/apex-chart/moment.min.js') }}"></script>
     <script src="{{ asset('admin-assets/js/notify/bootstrap-notify.min.js') }}"></script>
-    <script src="{{ asset('admin-assets/js/dashboard/default.js') }}"></script>
-    <script src="{{ asset('admin-assets/js/notify/index.js') }}"></script>
+    <!-- <script src="{{ asset('admin-assets/js/dashboard/default.js') }}"></script> -->
+    <!-- <script src="{{ asset('admin-assets/js/notify/index.js') }}"></script> -->
     <script src="{{ asset('admin-assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin-assets/js/datatable/datatables/datatable.custom.js') }}"></script>
     <script src="{{ asset('admin-assets/js/datatable/datatables/datatable.custom1.js') }}"></script>
     <script src="{{ asset('admin-assets/js/owlcarousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('admin-assets/js/owlcarousel/owl-custom.js') }}"></script>
-    <script src="{{ asset('admin-assets/js/typeahead/handlebars.js') }}"></script>
+    <!-- <script src="{{ asset('admin-assets/js/typeahead/handlebars.js') }}"></script>
     <script src="{{ asset('admin-assets/js/typeahead/typeahead.bundle.js') }}"></script>
     <script src="{{ asset('admin-assets/js/typeahead/typeahead.custom.js') }}"></script>
     <script src="{{ asset('admin-assets/js/typeahead-search/handlebars.js') }}"></script>
-    <script src="{{ asset('admin-assets/js/typeahead-search/typeahead-custom.js') }}"></script>
+    <script src="{{ asset('admin-assets/js/typeahead-search/typeahead-custom.js') }}"></script> -->
     <script src="{{ asset('admin-assets/js/height-equal.js') }}"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
