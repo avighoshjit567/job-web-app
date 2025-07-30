@@ -39,6 +39,17 @@
                             <svg class="fill-icon">
                                 <use href="{{ asset('admin-assets/svg/icon-sprite.svg') }}#fill-home"> </use>
                             </svg><span>Dashboard</span></a></li>
+                    <li class="sidebar-list"><i class="fa fa-thumb-tack"></i>
+                        <a class="sidebar-link sidebar-title link-nav" href="https://dashboard.tawk.to/login" target="_blank">
+                            <svg class="stroke-icon">
+                                <use href="{{ asset('admin-assets/svg/icon-sprite.svg') }}#stroke-home"></use>
+                            </svg>
+                            <svg class="fill-icon">
+                                <use href="{{ asset('admin-assets/svg/icon-sprite.svg') }}#fill-home"> </use>
+                            </svg>
+                            <span>Support</span>
+                        </a>
+                    </li>
 
 
 

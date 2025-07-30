@@ -282,10 +282,11 @@
             </div><!--end grid-->
 
             <div class="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+                @foreach($jobCategories as $category)
                 <div
                     class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
-                    <h5 class="text-lg font-semibold group-hover:text-white">Human Resource</h5>
-                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">90 Jobs Available</span>
+                    <h5 class="text-lg font-semibold group-hover:text-white">{{ $category->title }}</h5>
+                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">{{ $category->jobs_count }} Jobs Available</span>
 
                     <div class="mt-2">
                         <a href="javascript:void(0);"
@@ -293,114 +294,8 @@
                                 class="uil uil-arrow-right"></i></a>
                     </div>
                 </div><!--end content-->
-
-                <div
-                    class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
-                    <h5 class="text-lg font-semibold group-hover:text-white">It & Networking</h5>
-                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">90 Jobs Available</span>
-
-                    <div class="mt-2">
-                        <a href="javascript:void(0);"
-                            class="text-emerald-600 dark:text-white/80 group-hover:text-white font-medium">Explore Jobs <i
-                                class="uil uil-arrow-right"></i></a>
-                    </div>
-                </div><!--end content-->
-
-                <div
-                    class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
-                    <h5 class="text-lg font-semibold group-hover:text-white">Sales & Marketing</h5>
-                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">90 Jobs Available</span>
-
-                    <div class="mt-2">
-                        <a href="javascript:void(0);"
-                            class="text-emerald-600 dark:text-white/80 group-hover:text-white font-medium">Explore Jobs <i
-                                class="uil uil-arrow-right"></i></a>
-                    </div>
-                </div><!--end content-->
-
-                <div
-                    class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
-                    <h5 class="text-lg font-semibold group-hover:text-white">Accounting</h5>
-                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">90 Jobs Available</span>
-
-                    <div class="mt-2">
-                        <a href="javascript:void(0);"
-                            class="text-emerald-600 dark:text-white/80 group-hover:text-white font-medium">Explore Jobs <i
-                                class="uil uil-arrow-right"></i></a>
-                    </div>
-                </div><!--end content-->
-
-                <div
-                    class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
-                    <h5 class="text-lg font-semibold group-hover:text-white">Delivery Boy</h5>
-                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">90 Jobs Available</span>
-
-                    <div class="mt-2">
-                        <a href="javascript:void(0);"
-                            class="text-emerald-600 dark:text-white/80 group-hover:text-white font-medium">Explore Jobs <i
-                                class="uil uil-arrow-right"></i></a>
-                    </div>
-                </div><!--end content-->
-
-                <div
-                    class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
-                    <h5 class="text-lg font-semibold group-hover:text-white">Data Science</h5>
-                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">90 Jobs Available</span>
-
-                    <div class="mt-2">
-                        <a href="javascript:void(0);"
-                            class="text-emerald-600 dark:text-white/80 group-hover:text-white font-medium">Explore Jobs <i
-                                class="uil uil-arrow-right"></i></a>
-                    </div>
-                </div><!--end content-->
-
-                <div
-                    class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
-                    <h5 class="text-lg font-semibold group-hover:text-white">Project Manager</h5>
-                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">90 Jobs Available</span>
-
-                    <div class="mt-2">
-                        <a href="javascript:void(0);"
-                            class="text-emerald-600 dark:text-white/80 group-hover:text-white font-medium">Explore Jobs <i
-                                class="uil uil-arrow-right"></i></a>
-                    </div>
-                </div><!--end content-->
-
-                <div
-                    class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
-                    <h5 class="text-lg font-semibold group-hover:text-white">Engineering</h5>
-                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">90 Jobs Available</span>
-
-                    <div class="mt-2">
-                        <a href="javascript:void(0);"
-                            class="text-emerald-600 dark:text-white/80 group-hover:text-white font-medium">Explore Jobs <i
-                                class="uil uil-arrow-right"></i></a>
-                    </div>
-                </div><!--end content-->
-
-                <div
-                    class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
-                    <h5 class="text-lg font-semibold group-hover:text-white">Help Center</h5>
-                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">90 Jobs Available</span>
-
-                    <div class="mt-2">
-                        <a href="javascript:void(0);"
-                            class="text-emerald-600 dark:text-white/80 group-hover:text-white font-medium">Explore Jobs <i
-                                class="uil uil-arrow-right"></i></a>
-                    </div>
-                </div><!--end content-->
-
-                <div
-                    class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
-                    <h5 class="text-lg font-semibold group-hover:text-white">Full Stack Developer</h5>
-                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">90 Jobs Available</span>
-
-                    <div class="mt-2">
-                        <a href="javascript:void(0);"
-                            class="text-emerald-600 dark:text-white/80 group-hover:text-white font-medium">Explore Jobs <i
-                                class="uil uil-arrow-right"></i></a>
-                    </div>
-                </div><!--end content-->
+                @endforeach
+                
             </div><!--end grid-->
 
             <div class="grid md:grid-cols-12 grid-cols-1 md:hidden mt-8">
@@ -421,30 +316,34 @@
             </div><!--end grid-->
 
             <div class="grid grid-cols-1 mt-8 gap-[30px]">
-                <div
-                    class="group relative overflow-hidden md:flex justify-between items-center rounded shadow-sm hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-5">
+                @foreach($popularJobs as $job)
+                <div class="group relative overflow-hidden md:flex justify-between items-center rounded shadow-sm hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-5">
                     <div class="flex items-center">
                         <div
                             class="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 rounded-md">
-                            <img src="{{ asset('web-assets/images/company/facebook-logo.png') }}" class="size-8"
+                            @if($job->image)
+                            <img src="{{ asset($job->image) }}" class="size-8"
                                 alt="">
+                            @endif
                         </div>
                         <a href="job-detail-one.html"
-                            class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">Web
-                            Designer</a>
+                            class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">{{ $job->title }}</a>
                     </div>
+                    
 
                     <div class="md:block flex justify-between md:mt-0 mt-4">
                         <span class="block"><span
-                                class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Full
-                                Time</span></span>
-                        <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> 20th Feb
-                            2023</span>
+                                class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">{{ $job->employment_type }}</span></span>
+                        @if($job->application_deadline)
+                            <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i>{{ Carbon\Carbon::parse($job->application_deadline)->format('d M Y') }}</span>
+                        @else
+                        <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> No Deadline</span>
+                        @endif
                     </div>
 
                     <div class="md:block flex justify-between md:mt-0 mt-2">
-                        <span class="text-slate-400"><i class="uil uil-map-marker"></i> Australia</span>
-                        <span class="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
+                        <span class="text-slate-400"><i class="uil uil-map-marker"></i> {{ $job->location }}</span>
+                        <span class="block font-semibold md:mt-1 mt-0">৳{{ $job->salary }}</span>
                     </div>
 
                     <div class="md:mt-0 mt-4">
@@ -456,195 +355,9 @@
                             Now</a>
                     </div>
 
-                    <span
-                        class="w-24 bg-yellow-400 text-white text-center absolute ltr:-rotate-45 rtl:rotate-45 -start-[30px] top-1"><i
-                            class="uil uil-star"></i></span>
                 </div><!--end content-->
-
-                <div
-                    class="group relative overflow-hidden md:flex justify-between items-center rounded shadow-sm hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-5">
-                    <div class="flex items-center">
-                        <div
-                            class="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 rounded-md">
-                            <img src="{{ asset('web-assets/images/company/google-logo.png') }}" class="size-8"
-                                alt="">
-                        </div>
-                        <a href="job-detail-one.html"
-                            class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">Marketing
-                            Director</a>
-                    </div>
-
-                    <div class="md:block flex justify-between md:mt-0 mt-4">
-                        <span class="block"><span
-                                class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Part
-                                Time</span></span>
-                        <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> 20th Feb
-                            2023</span>
-                    </div>
-
-                    <div class="md:block flex justify-between md:mt-0 mt-2">
-                        <span class="text-slate-400"><i class="uil uil-map-marker"></i> USA</span>
-                        <span class="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
-                    </div>
-
-                    <div class="md:mt-0 mt-4">
-                        <a href="#"
-                            class="size-9 font-semibold tracking-wide border align-middle transition duration-500 ease-in-out inline-flex items-center text-center justify-center text-base rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><i
-                                data-feather="bookmark" class="size-4"></i></a>
-                        <a href="job-apply.html"
-                            class="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply
-                            Now</a>
-                    </div>
-                </div><!--end content-->
-
-                <div
-                    class="group relative overflow-hidden md:flex justify-between items-center rounded shadow-sm hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-5">
-                    <div class="flex items-center">
-                        <div
-                            class="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 rounded-md">
-                            <img src="{{ asset('web-assets/images/company/android.png') }}" class="size-8"
-                                alt="">
-                        </div>
-                        <a href="job-detail-one.html"
-                            class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">App
-                            Developer</a>
-                    </div>
-
-                    <div class="md:block flex justify-between md:mt-0 mt-4">
-                        <span class="block"><span
-                                class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Remote</span></span>
-                        <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> 20th Feb
-                            2023</span>
-                    </div>
-
-                    <div class="md:block flex justify-between md:mt-0 mt-2">
-                        <span class="text-slate-400"><i class="uil uil-map-marker"></i> China</span>
-                        <span class="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
-                    </div>
-
-                    <div class="md:mt-0 mt-4">
-                        <a href="#"
-                            class="size-9 font-semibold tracking-wide border align-middle transition duration-500 ease-in-out inline-flex items-center text-center justify-center text-base rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><i
-                                data-feather="bookmark" class="size-4"></i></a>
-                        <a href="job-apply.html"
-                            class="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply
-                            Now</a>
-                    </div>
-                </div><!--end content-->
-
-                <div
-                    class="group relative overflow-hidden md:flex justify-between items-center rounded shadow-sm hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-5">
-                    <div class="flex items-center">
-                        <div
-                            class="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 rounded-md">
-                            <img src="{{ asset('web-assets/images/company/lenovo-logo.png') }}" class="size-8"
-                                alt="">
-                        </div>
-                        <a href="javascript:void(0);"
-                            class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">Product
-                            Designer</a>
-                    </div>
-
-                    <div class="md:block flex justify-between md:mt-0 mt-4">
-                        <span class="block"><span
-                                class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">WFH</span></span>
-                        <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> 20th Feb
-                            2023</span>
-                    </div>
-
-                    <div class="md:block flex justify-between md:mt-0 mt-2">
-                        <span class="text-slate-400"><i class="uil uil-map-marker"></i> Dubai</span>
-                        <span class="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
-                    </div>
-
-                    <div class="md:mt-0 mt-4">
-                        <a href="#"
-                            class="size-9 font-semibold tracking-wide border align-middle transition duration-500 ease-in-out inline-flex items-center text-center justify-center text-base rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><i
-                                data-feather="bookmark" class="size-4"></i></a>
-                        <a href="javascript:void(0);"
-                            class="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply
-                            Now</a>
-                    </div>
-                </div><!--end content-->
-
-                <div
-                    class="group relative overflow-hidden md:flex justify-between items-center rounded shadow-sm hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-5">
-                    <div class="flex items-center">
-                        <div
-                            class="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 rounded-md">
-                            <img src="{{ asset('web-assets/images/company/spotify.png') }}" class="size-8"
-                                alt="">
-                        </div>
-                        <a href="javascript:void(0);"
-                            class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">C++
-                            Developer</a>
-                    </div>
-
-                    <div class="md:block flex justify-between md:mt-0 mt-4">
-                        <span class="block"><span
-                                class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Full
-                                Time</span></span>
-                        <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> 20th Feb
-                            2023</span>
-                    </div>
-
-                    <div class="md:block flex justify-between md:mt-0 mt-2">
-                        <span class="text-slate-400"><i class="uil uil-map-marker"></i> India</span>
-                        <span class="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
-                    </div>
-
-                    <div class="md:mt-0 mt-4">
-                        <a href="#"
-                            class="size-9 font-semibold tracking-wide border align-middle transition duration-500 ease-in-out inline-flex items-center text-center justify-center text-base rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><i
-                                data-feather="bookmark" class="size-4"></i></a>
-                        <a href="javascript:void(0);"
-                            class="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply
-                            Now</a>
-                    </div>
-
-                    <span
-                        class="w-24 bg-yellow-400 text-white text-center absolute ltr:-rotate-45 rtl:rotate-45 -start-[30px] top-1"><i
-                            class="uil uil-star"></i></span>
-                </div><!--end content-->
-
-                <div
-                    class="group relative overflow-hidden md:flex justify-between items-center rounded shadow-sm hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-5">
-                    <div class="flex items-center">
-                        <div
-                            class="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 rounded-md">
-                            <img src="{{ asset('web-assets/images/company/linkedin.png') }}" class="size-8"
-                                alt="">
-                        </div>
-                        <a href="javascript:void(0);"
-                            class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">Php
-                            Developer</a>
-                    </div>
-
-                    <div class="md:block flex justify-between md:mt-0 mt-4">
-                        <span class="block"><span
-                                class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Remote</span></span>
-                        <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> 20th Feb
-                            2023</span>
-                    </div>
-
-                    <div class="md:block flex justify-between md:mt-0 mt-2">
-                        <span class="text-slate-400"><i class="uil uil-map-marker"></i> Pakistan</span>
-                        <span class="block font-semibold md:mt-1 mt-0">$4,000 - $4,500</span>
-                    </div>
-
-                    <div class="md:mt-0 mt-4">
-                        <a href="#"
-                            class="size-9 font-semibold tracking-wide border align-middle transition duration-500 ease-in-out inline-flex items-center text-center justify-center text-base rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><i
-                                data-feather="bookmark" class="size-4"></i></a>
-                        <a href="javascript:void(0);"
-                            class="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply
-                            Now</a>
-                    </div>
-
-                    <span
-                        class="w-24 bg-yellow-400 text-white text-center absolute ltr:-rotate-45 rtl:rotate-45 -start-[30px] top-1"><i
-                            class="uil uil-star"></i></span>
-                </div><!--end content-->
+                @endforeach
+                
             </div><!--end grid-->
 
             <div class="grid md:grid-cols-1 grid-cols-1 mt-8">
@@ -653,26 +366,6 @@
                         class="inline-block font-semibold tracking-wide border align-middle transition text-base text-center relative border-none after:content-[''] after:absolute after:h-px after:w-0 after:end-0 after:bottom-0 after:start-0 after:transition-all after:duration-500 hover:after:w-full hover:after:end-auto text-slate-400 hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">See
                         More Jobs <i class="uil uil-arrow-right align-middle"></i></a>
                 </div>
-            </div><!--end grid-->
-        </div><!--end container-->
-    </section><!--end section-->
-    <!-- End -->
-
-    <!-- Start -->
-    <section
-        class="py-20 w-full table relative bg-[url('../../assets/images/hero/bg2.html')] bg-top bg-no-repeat bg-cover">
-        <div class="absolute inset-0 bg-slate-900/70"></div>
-        <div class="container relative">
-            <div class="grid grid-cols-1 text-center">
-                <h3 class="mb-4 md:text-[26px] text-2xl text-white font-medium">Get the job that's right for you</h3>
-
-                <p class="text-white/80 max-w-xl mx-auto">Search all the open positions on the web. Get your own
-                    personalized salary estimate. Read reviews on over 30000+ companies worldwide.</p>
-
-                <a href="#!" data-type="youtube" data-id="S_CGed6E610"
-                    class="lightbox size-20 rounded-full shadow-lg dark:shadow-gray-800 inline-flex items-center justify-center bg-white dark:bg-slate-900 text-emerald-600 mx-auto mt-10">
-                    <i class="mdi mdi-play inline-flex items-center justify-center text-2xl"></i>
-                </a>
             </div><!--end grid-->
         </div><!--end container-->
     </section><!--end section-->

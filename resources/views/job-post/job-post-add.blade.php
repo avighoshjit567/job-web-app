@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-xl-3 col-sm-5 box-col-4">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index-2.html">
+                        <li class="breadcrumb-item"><a href="#">
                                 <svg class="stroke-icon">
                                     <use href="{{ asset('admin-assets/svg/icon-sprite.svg') }}#stroke-home"></use>
                                 </svg></a></li>
@@ -38,6 +38,21 @@
                         <div class="form theme-form">
                             <form action="{{ route('job.post.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label>Job Category</label>
+                                            <select class="form-select" name="job_category_id">
+                                                @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('job_category_id')
+                                            <div class="text-danger mt-1">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="mb-3">

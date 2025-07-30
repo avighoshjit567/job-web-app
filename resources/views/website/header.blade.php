@@ -12,7 +12,7 @@
             <div class="sm:block hidden">
                 <img src="{{ asset('web-assets/images/logo-dark.png') }}" class="h-[24px] inline-block dark:hidden"
                     alt="">
-                <img src="{{ asset('web-assets/images/logo-white.png') }}" class="h-[24px] hidden dark:inline-block"
+                <img src="{{ asset('web-assets/images/logo-dark.png') }}" class="h-[24px] hidden dark:inline-block"
                     alt="">
             </div>
         </a>

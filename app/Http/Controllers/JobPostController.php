@@ -39,12 +39,15 @@ class JobPostController extends Controller
     // function for displaying the job post list
     public function jobPostAdd()
     {
-        return view('job-post.job-post-add');
+        $categories = JobCategory::get();
+        return view('job-post.job-post-add',compact('categories'));
     }
 
     public function jobPostStore(Request $request)
     {
+        // dd($request->all());
         $validated = $request->validate([
+            'job_category_id'      => 'required|exists:job_categories,id',
             'title'                => 'required|string|max:255',
             'description'          => 'nullable|string',
             'company_name'         => 'nullable|string|max:255',
@@ -52,7 +55,7 @@ class JobPostController extends Controller
             'employment_type'      => 'required|string|in:Full time,Part time,Project Basis',
             'experience_level'     => 'nullable|string|max:255',
             'education_level'      => 'nullable|string|max:255',
-            'salary'               => 'nullable|string|max:255',
+            'salary'               => 'nullable|numeric|min:0',
             'vacancy'              => 'nullable|integer',
             'application_deadline' => 'nullable|date',
             'contact_email'        => 'nullable|email|max:255',
@@ -79,6 +82,7 @@ class JobPostController extends Controller
 
         // Store job post
         JobPost::create([
+            'category_id'          => $validated['job_category_id'],
             'title'                => $validated['title'],
             'slug'                 => $slug,
             'description'          => $validated['description'] ?? null,

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Foreign key to users table
             $table->string('slug')->unique(); // Unique slug for SEO-friendly URLs
             $table->string('image')->nullable(); // Image for the job post
-            $table->string('category', 100)->nullable(); // Category of the job post
+            $table->foreignId('category_id')->constrained('job_categories')->onDelete('cascade'); // Foreign key to category table
             $table->timestamps();
             $table->softDeletes();
         });

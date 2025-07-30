@@ -13,7 +13,8 @@
     <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
     <link rel="icon" href="{{ asset('admin-assets/images/favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('admin-assets/images/favicon.png') }}" type="image/x-icon">
-    <title>Zono - Premium Admin Template</title>
+    <title>Hire Hunt - Admin Panel</title>
+    <!-- <title>Zono - Premium Admin Template</title> -->
     <!-- Google font -->
     <!-- <link rel="preconnect" href="../../../fonts.googleapis.com/index.html">
     <link rel="preconnect" href="../../../fonts.gstatic.com/index.html" crossorigin="">
