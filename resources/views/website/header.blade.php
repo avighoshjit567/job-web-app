@@ -42,41 +42,35 @@
                         name="s" id="searchItem" placeholder="Search...">
                 </div>
             </li>
-            <li class="dropdown inline-block relative ps-1">
-                <button data-dropdown-toggle="dropdown" class="dropdown-toggle items-center" type="button">
-                    <span
-                        class="size-9 inline-flex items-center text-center justify-center text-base font-semibold tracking-wide border align-middle transition duration-500 ease-in-out rounded-full bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white"><img
-                            src="{{ asset('web-assets/images/team/01.jpg') }}" class="rounded-full"
-                            alt=""></span>
-                </button>
-                <!-- Dropdown menu -->
-                <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 hidden"
-                    onclick="event.stopPropagation();">
-                    <ul class="py-2 text-start">
-                        <li>
-                            <a href="javascript:void(0);"
-                                class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i
-                                    data-feather="user" class="size-4 me-2"></i>Profile</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);"
-                                class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i
-                                    data-feather="settings" class="size-4 me-2"></i>Settings</a>
-                        </li>
-                        <li class="border-t border-gray-100 dark:border-gray-800 my-2"></li>
-                        <li>
-                            <a href="javascript:void(0);"
-                                class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i
-                                    data-feather="lock" class="size-4 me-2"></i>Lockscreen</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);"
-                                class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i
-                                    data-feather="log-out" class="size-4 me-2"></i>Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </li><!--end dropdown-->
+            @if (Auth::check())
+                <li class="dropdown inline-block relative ps-1">
+                    <button data-dropdown-toggle="dropdown" class="dropdown-toggle items-center" type="button">
+                        <span
+                            class="size-9 inline-flex items-center text-center justify-center text-base font-semibold tracking-wide border align-middle transition duration-500 ease-in-out rounded-full bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white"><img
+                                src="{{ asset('web-assets/images/team/01.jpg') }}" class="rounded-full"
+                                alt=""></span>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 hidden"
+                        onclick="event.stopPropagation();">
+                        <ul class="py-2 text-start">
+                            <li>
+                                <a href="{{ route('user.logout') }}"
+                                    class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i
+                                        data-feather="log-out" class="size-4 me-2"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li><!--end dropdown-->
+            @else
+                <li class="inline-block mb-0">
+                    <div class="relative top-[3px]">
+                        <a href="{{ route('user.login') }}"
+                            class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i
+                                data-feather="log-out" class="size-4 me-2"></i>Login</a>
+                    </div>
+                </li>
+            @endif
         </ul>
         <!--Login button End-->
 

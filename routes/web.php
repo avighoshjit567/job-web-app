@@ -34,5 +34,10 @@ Route::middleware(['auth','verified'])->group(function () {
 Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/user/login', [FrontendController::class, 'login'])->name('user.login');
+Route::post('/user/login-process', [FrontendController::class, 'loginProcess'])->name('user.login.process');
+Route::get('/user/logout', [FrontendController::class, 'logout'])->name('user.logout');
+Route::get('/user/register', [FrontendController::class, 'register'])->name('user.register');
+Route::post('/user/store', [FrontendController::class, 'storeUser'])->name('user.store');
 
 require __DIR__.'/auth.php';
