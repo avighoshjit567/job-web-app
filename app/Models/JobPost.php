@@ -12,4 +12,9 @@ class JobPost extends Model
         'contact_email', 'status', 'image', 'user_id',
     ];
 
+    public function category()
+    {
+        return $this->belongsTo(JobCategory::class, 'category_id');
+    }
+
 }

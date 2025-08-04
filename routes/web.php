@@ -34,6 +34,9 @@ Route::middleware(['auth','verified'])->group(function () {
 Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/category', [FrontendController::class, 'category'])->name('category');
+Route::get('/job-post', [FrontendController::class, 'jobPost'])->name('job.post');
+Route::get('/job-post/{slug?}', [FrontendController::class, 'jobPostDetails'])->name('job.post.details');
 Route::get('/user/login', [FrontendController::class, 'login'])->name('user.login');
 Route::post('/user/login-process', [FrontendController::class, 'loginProcess'])->name('user.login.process');
 Route::get('/user/logout', [FrontendController::class, 'logout'])->name('user.logout');

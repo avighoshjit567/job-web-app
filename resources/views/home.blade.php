@@ -275,7 +275,7 @@
                 </div>
 
                 <div class="lg:col-span-4 md:col-span-6 md:text-end hidden md:block">
-                    <a href="#"
+                    <a href="{{ route('category') }}"
                         class="inline-block font-semibold tracking-wide border align-middle transition text-base text-center relative border-none after:content-[''] after:absolute after:h-px after:w-0 after:end-0 after:bottom-0 after:start-0 after:transition-all after:duration-500 hover:after:w-full hover:after:end-auto text-slate-400 hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">All
                         Categories <i class="uil uil-arrow-right align-middle"></i></a>
                 </div>
@@ -300,7 +300,7 @@
 
             <div class="grid md:grid-cols-12 grid-cols-1 md:hidden mt-8">
                 <div class="md:col-span-12 text-center">
-                    <a href="#"
+                    <a href="{{ route('category') }}"
                         class="inline-block font-semibold tracking-wide border align-middle transition text-base text-center relative border-none after:content-[''] after:absolute after:h-px after:w-0 after:end-0 after:bottom-0 after:start-0 after:transition-all after:duration-500 hover:after:w-full hover:after:end-auto text-slate-400 hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">All
                         Categories <i class="uil uil-arrow-right align-middle"></i></a>
                 </div>

@@ -36,6 +36,35 @@ class FrontendController extends Controller
         return view('website.about');
     }
     
+    // Function for category page
+    public function category()
+    {
+        $jobCategories = JobCategory::withCount('jobs')->get();
+        return view('website.category',compact('jobCategories'));
+    }
+    
+    // Function for job post page
+    public function jobPost()
+    {
+        $jobPosts = JobPost::where('status', 'active')->get();
+        return view('website.job_post',compact('jobPosts'));
+    }
+    
+    // Function for job details page
+    public function jobPostDetails($slug)
+    {
+        $jobPost = JobPost::where('slug', $slug)->first();
+        if (!$jobPost) {
+            abort(404, 'Job post not found');
+        }
+        $releatedJobs = JobPost::where('category_id', $jobPost->category_id)
+            ->where('id', '!=', $jobPost->id)
+            ->where('status', 'active')
+            ->take(6)
+            ->get();
+        return view('website.job_post_details',compact('jobPost','releatedJobs'));
+    }
+    
     // Function for login page
     public function login()
     {

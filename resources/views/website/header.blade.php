@@ -42,7 +42,7 @@
                         name="s" id="searchItem" placeholder="Search...">
                 </div>
             </li>
-            @if (Auth::check())
+            @if (Auth::check() && Auth::user()->type == 'user')
                 <li class="dropdown inline-block relative ps-1">
                     <button data-dropdown-toggle="dropdown" class="dropdown-toggle items-center" type="button">
                         <span
@@ -82,13 +82,9 @@
                 <li class="has-submenu parent-parent-menu-item"><a href="javascript:void(0)"> Jobs </a><span
                         class="menu-arrow"></span>
                     <ul class="submenu">
-                        <li><a href="javascript:void(0);" class="sub-menu-item">Job Categories</a></li>
+                        <li><a href="{{ route('category') }}" class="sub-menu-item">Job Categories</a></li>
 
-                        <li><a href="javascript:void(0);" class="sub-menu-item">Job Apply</a></li>
-
-                        <li><a href="javascript:void(0);" class="sub-menu-item">Job Post </a></li>
-
-                        <li><a href="javascript:void(0);" class="sub-menu-item">Career </a></li>
+                        <li><a href="{{ route('job.post') }}" class="sub-menu-item">Job Post </a></li>
                     </ul>
                 </li>
 
