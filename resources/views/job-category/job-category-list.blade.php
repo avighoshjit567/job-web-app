@@ -74,6 +74,22 @@ $(document).ready(function() {
             }
         ]
     });
+
+    $(document).on('click', '.tableDelete', function() {
+        if(confirm('Are you sure you want to delete this category?')) {
+            var url = $(this).data('url');
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    $('#jobPostList').DataTable().ajax.reload();
+                }
+            });
+        }
+    });
 });
 </script>
 @endpush

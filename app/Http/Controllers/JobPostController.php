@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\JobPost;
 use App\Models\JobCategory;
+use App\Models\JobApply;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
@@ -28,8 +29,8 @@ class JobPostController extends Controller
                 return $data->created_at->format('Y-m-d H:i:s');
             })
             ->addColumn('action', function ($data) {
-                $htmlData = '<a href="javascript:void(0)" data-id="'.$data->id.'" class="btn btn-info btn-sm tableEdit">Edit</a>&nbsp;';
-                $htmlData .= '<a href="javascript:void(0)" data-id="'.$data->id.'" class="btn btn-danger btn-sm tableDelete">Delete</a>';
+                $htmlData = '<a href="'.route('job.post.edit', $data->id).'" data-id="'.$data->id.'" class="btn btn-info btn-sm tableEdit">Edit</a>&nbsp;';
+                $htmlData .= '<a href="javascript:void(0)" data-id="'.$data->id.'" data-url="'.route('job.post.delete', $data->id).'" class="btn btn-danger btn-sm tableDelete">Delete</a>';
                 return $htmlData;
             })
             ->rawColumns(['action'])
@@ -150,6 +151,30 @@ class JobPostController extends Controller
                 return $data->created_at->format('Y-m-d H:i:s');
             })
             ->addColumn('action', function ($data) {
+                $htmlData = '<a href="'.route('job.category.edit', $data->id).'" data-id="'.$data->id.'" class="btn btn-info btn-sm tableEdit">Edit</a>&nbsp;';
+                $htmlData .= '<a href="javascript:void(0)" data-id="'.$data->id.'" data-url="'.route('job.category.delete', $data->id).'" class="btn btn-danger btn-sm tableDelete">Delete</a>';
+                return $htmlData;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+    }
+
+    // function for displaying the job post applied list
+    public function jobAppliedList()
+    {
+        return view('job-post.job-applied-list');
+    }
+
+    public function jobAppliedListData(Request $request)
+    {
+        $query = JobApply::with('jobPost', 'user')->where('status', 'active');
+
+        return DataTables::of($query)
+            ->addIndexColumn()
+            ->editColumn('job_post', function ($data) {
+                return $data->jobPost->title ?? '';
+            })
+            ->addColumn('action', function ($data) {
                 $htmlData = '<a href="javascript:void(0)" data-id="'.$data->id.'" class="btn btn-info btn-sm tableEdit">Edit</a>&nbsp;';
                 $htmlData .= '<a href="javascript:void(0)" data-id="'.$data->id.'" class="btn btn-danger btn-sm tableDelete">Delete</a>';
                 return $htmlData;
@@ -158,5 +183,92 @@ class JobPostController extends Controller
             ->make(true);
     }
 
-    
+    public function jobCategoryEdit($id)
+    {
+        $category = JobCategory::findOrFail($id);
+        return view('job-category.job-category-edit', compact('category'));
+    }
+
+    public function jobCategoryUpdate(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255|unique:job_categories,title,'.$id,
+        ]);
+        $category = JobCategory::findOrFail($id);
+        $category->title = $validated['title'];
+        $category->save();
+
+        return redirect()->route('job.category.edit', $category->id)->with('success', 'Category updated successfully.');
+    }
+
+    public function jobCategoryDelete($id)
+    {
+        $category = JobCategory::findOrFail($id);
+        $category->delete();
+
+        return response()->json(['success' => true]);
+    }
+
+    public function jobPostEdit($id)
+    {
+        $jobPost = JobPost::findOrFail($id);
+        $categories = JobCategory::all();
+        return view('job-post.job-post-edit', compact('jobPost', 'categories'));
+    }
+
+    public function jobPostUpdate(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'job_category_id'      => 'required|exists:job_categories,id',
+            'title'                => 'required|string|max:255',
+            'description'          => 'nullable|string',
+            'company_name'         => 'nullable|string|max:255',
+            'location'             => 'nullable|string|max:255',
+            'employment_type'      => 'required|string|in:Full time,Part time,Project Basis',
+            'experience_level'     => 'nullable|string|max:255',
+            'education_level'      => 'nullable|string|max:255',
+            'salary'               => 'nullable|numeric|min:0',
+            'vacancy'              => 'nullable|integer',
+            'application_deadline' => 'nullable|date',
+            'contact_email'        => 'nullable|email|max:255',
+            'status'               => 'required|string|in:Active,Draft',
+            'image'                => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $jobPost = JobPost::findOrFail($id);
+
+        // Handle image upload if exists
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/job-posts'), $imageName);
+            $validated['image_path'] = 'uploads/job-posts/' . $imageName;
+            $jobPost->image = $validated['image_path'];
+        }
+
+        $jobPost->category_id = $validated['job_category_id'];
+        $jobPost->title = $validated['title'];
+        $jobPost->description = $validated['description'] ?? null;
+        $jobPost->company_name = $validated['company_name'] ?? null;
+        $jobPost->location = $validated['location'] ?? null;
+        $jobPost->employment_type = $validated['employment_type'];
+        $jobPost->experience_level = $validated['experience_level'] ?? null;
+        $jobPost->education_level = $validated['education_level'] ?? null;
+        $jobPost->salary = $validated['salary'] ?? null;
+        $jobPost->vacancy = $validated['vacancy'] ?? null;
+        $jobPost->application_deadline = $validated['application_deadline'] ?? null;
+        $jobPost->contact_email = $validated['contact_email'] ?? null;
+        $jobPost->status = $validated['status'];
+        $jobPost->save();
+
+        return redirect()->route('job.post.edit', $jobPost->id)->with('success', 'Job post updated successfully.');
+    }
+
+    public function jobPostDelete($id)
+    {
+        $jobPost = JobPost::findOrFail($id);
+        $jobPost->delete();
+
+        return response()->json(['success' => true]);
+    }
 }

@@ -126,9 +126,9 @@
 
 
                     <div class="mt-5">
-                        <a href="#"
-                            class="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply
-                            Now</a>
+                        <a href="{{ route('job.apply', $jobPost->slug) }}"
+                            class="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">
+                            Apply Now</a>
                     </div>
                 </div><!--end col-->
             </div><!--end grid-->

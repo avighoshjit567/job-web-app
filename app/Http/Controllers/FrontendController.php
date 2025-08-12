@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\JobCategory;
 use App\Models\JobPost;
+use App\Models\JobApply;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -64,7 +65,59 @@ class FrontendController extends Controller
             ->get();
         return view('website.job_post_details',compact('jobPost','releatedJobs'));
     }
-    
+
+    public function jobApply($slug)
+    {
+        if(Auth::check()){
+            $user = Auth::user();
+            // Redirect based on user type
+            if ($user->type === 'admin') {
+                return redirect()->route('dashboard');
+            }
+
+            $jobPost = JobPost::where('slug', $slug)->first();
+            if (!$jobPost) {
+                abort(404, 'Job post not found');
+            }
+            return view('website.job_apply', compact('jobPost'));
+        }else{
+            return redirect()->route('user.login')->with('error', 'Please login to apply for the job.');
+        }
+        
+    }
+
+    public function jobApplyStore(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'resume' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+        ]);
+
+        // Handle the job application logic here
+        $jobApply = new JobApply();
+        $jobApply->name = $request->name;
+        $jobApply->email = $request->email;
+        $jobApply->mobile = $request->mobile;
+        $jobApply->about = $request->about;
+        $jobApply->salary = $request->salary;
+        $jobApply->skills = $request->skills;
+        $jobApply->qualifications = $request->qualifications;
+        $jobApply->experience = $request->experience;
+        $jobApply->address = $request->address;
+        $jobApply->status = 'active';
+        $jobApply->user_id = Auth::id();
+        $jobApply->job_id = $request->job_id;
+
+        // if ($request->hasFile('resume')) {
+        //     $jobApply->resume = $request->file('resume')->store('resumes');
+        // }
+
+        $jobApply->save();
+
+        return redirect()->route('home')->with('success', 'Your application has been submitted successfully.');
+    }
+
     // Function for login page
     public function login()
     {

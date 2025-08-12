@@ -199,7 +199,7 @@
                         </p>
 
                         <div class="mt-5">
-                            <a href="#"
+                            <a href="{{ route('job.post') }}"
                                 class="inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center relative border-none after:content-[''] after:absolute after:h-px after:w-0 after:end-0 after:bottom-0 after:start-0 after:transition-all after:duration-500 hover:after:w-full hover:after:end-auto text-emerald-600 hover:text-emerald-600 after:bg-emerald-600">Read
                                 More <i class="uil uil-arrow-right"></i></a>
                         </div>
@@ -282,20 +282,22 @@
             </div><!--end grid-->
 
             <div class="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
-                @foreach($jobCategories as $category)
-                <div
-                    class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
-                    <h5 class="text-lg font-semibold group-hover:text-white">{{ $category->title }}</h5>
-                    <span class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">{{ $category->jobs_count }} Jobs Available</span>
+                @foreach ($jobCategories as $category)
+                    <div
+                        class="group p-4 rounded-md shadow-sm dark:shadow-gray-700 bg-slate-50 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-500">
+                        <h5 class="text-lg font-semibold group-hover:text-white">{{ $category->title }}</h5>
+                        <span
+                            class="block text-slate-400 group-hover:text-white/50 text-sm mt-1">{{ $category->jobs_count }}
+                            Jobs Available</span>
 
-                    <div class="mt-2">
-                        <a href="javascript:void(0);"
-                            class="text-emerald-600 dark:text-white/80 group-hover:text-white font-medium">Explore Jobs <i
-                                class="uil uil-arrow-right"></i></a>
-                    </div>
-                </div><!--end content-->
+                        <div class="mt-2">
+                            <a href="javascript:void(0);"
+                                class="text-emerald-600 dark:text-white/80 group-hover:text-white font-medium">Explore Jobs
+                                <i class="uil uil-arrow-right"></i></a>
+                        </div>
+                    </div><!--end content-->
                 @endforeach
-                
+
             </div><!--end grid-->
 
             <div class="grid md:grid-cols-12 grid-cols-1 md:hidden mt-8">
@@ -316,48 +318,50 @@
             </div><!--end grid-->
 
             <div class="grid grid-cols-1 mt-8 gap-[30px]">
-                @foreach($popularJobs as $job)
-                <div class="group relative overflow-hidden md:flex justify-between items-center rounded shadow-sm hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-5">
-                    <div class="flex items-center">
-                        <div
-                            class="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 rounded-md">
-                            @if($job->image)
-                            <img src="{{ asset($job->image) }}" class="size-8"
-                                alt="">
+                @foreach ($popularJobs as $job)
+                    <div
+                        class="group relative overflow-hidden md:flex justify-between items-center rounded shadow-sm hover:shadow-md dark:shadow-gray-700 transition-all duration-500 p-5">
+                        <div class="flex items-center">
+                            <div
+                                class="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 rounded-md">
+                                @if ($job->image)
+                                    <img src="{{ asset($job->image) }}" class="size-8" alt="">
+                                @endif
+                            </div>
+                            <a href="{{ route('job.post.details', $job->slug) }}"
+                                class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">{{ $job->title }}</a>
+                        </div>
+
+
+                        <div class="md:block flex justify-between md:mt-0 mt-4">
+                            <span class="block"><span
+                                    class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">{{ $job->employment_type }}</span></span>
+                            @if ($job->application_deadline)
+                                <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i
+                                        class="uil uil-clock"></i>{{ Carbon\Carbon::parse($job->application_deadline)->format('d M Y') }}</span>
+                            @else
+                                <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> No
+                                    Deadline</span>
                             @endif
                         </div>
-                        <a href="job-detail-one.html"
-                            class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[180px]">{{ $job->title }}</a>
-                    </div>
-                    
 
-                    <div class="md:block flex justify-between md:mt-0 mt-4">
-                        <span class="block"><span
-                                class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">{{ $job->employment_type }}</span></span>
-                        @if($job->application_deadline)
-                            <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i>{{ Carbon\Carbon::parse($job->application_deadline)->format('d M Y') }}</span>
-                        @else
-                        <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> No Deadline</span>
-                        @endif
-                    </div>
+                        <div class="md:block flex justify-between md:mt-0 mt-2">
+                            <span class="text-slate-400"><i class="uil uil-map-marker"></i> {{ $job->location }}</span>
+                            <span class="block font-semibold md:mt-1 mt-0">৳{{ $job->salary }}</span>
+                        </div>
 
-                    <div class="md:block flex justify-between md:mt-0 mt-2">
-                        <span class="text-slate-400"><i class="uil uil-map-marker"></i> {{ $job->location }}</span>
-                        <span class="block font-semibold md:mt-1 mt-0">৳{{ $job->salary }}</span>
-                    </div>
+                        <div class="md:mt-0 mt-4">
+                            <a href="#"
+                                class="size-9 font-semibold tracking-wide border align-middle transition duration-500 ease-in-out inline-flex items-center text-center justify-center text-base rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><i
+                                    data-feather="bookmark" class="size-4"></i></a>
+                            <a href="{{ route('job.apply', $job->slug) }}"
+                                class="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply
+                                Now</a>
+                        </div>
 
-                    <div class="md:mt-0 mt-4">
-                        <a href="#"
-                            class="size-9 font-semibold tracking-wide border align-middle transition duration-500 ease-in-out inline-flex items-center text-center justify-center text-base rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white md:relative absolute top-0 end-0 md:m-0 m-3"><i
-                                data-feather="bookmark" class="size-4"></i></a>
-                        <a href="javascript:void(0);"
-                            class="py-1 px-5 inline-block font-semibold tracking-wide border align-middle transition duration-500 ease-in-out text-base text-center rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto">Apply
-                            Now</a>
-                    </div>
-
-                </div><!--end content-->
+                    </div><!--end content-->
                 @endforeach
-                
+
             </div><!--end grid-->
 
             <div class="grid md:grid-cols-1 grid-cols-1 mt-8">

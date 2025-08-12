@@ -5,7 +5,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-xl-4 col-sm-7 box-col-3">
-                        <h3>Job Post List</h3>
+                        <h3>Job Applied List</h3>
                     </div>
                     <div class="col-5 d-none d-xl-block">
 
@@ -16,8 +16,8 @@
                                     <svg class="stroke-icon">
                                         <use href="{{ asset('admin-assets/svg/icon-sprite.svg') }}#stroke-home"></use>
                                     </svg></a></li>
-                            <li class="breadcrumb-item">Job Post</li>
-                            <li class="breadcrumb-item active">Job Post List</li>
+                            <li class="breadcrumb-item">Job Applied</li>
+                            <li class="breadcrumb-item active">Job Applied List</li>
                         </ol>
                     </div>
                 </div>
@@ -35,11 +35,15 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Title</th>
-                                            <th>Company Name</th>
-                                            <th>Location</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Mobile</th>
                                             <th>Salary</th>
-                                            <th>Status</th>
+                                            <th>Skills</th>
+                                            <th>Qualification</th>
+                                            <th>Experience</th>
+                                            <th>Address</th>
+                                            <th>Bio</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -57,57 +61,56 @@
     <script>
         $(document).ready(function() {
             // Initialize DataTable
+            const url = @json(route('job.applied.list.data'));
             $('#jobPostList').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('job.post.list.data') }}',
+                ajax: url,
                 columns: [{
                         data: 'id',
                         name: 'id'
                     },
                     {
-                        data: 'title',
-                        name: 'title'
+                        data: 'job_post',
+                        name: 'Job Post'
                     },
                     {
-                        data: 'company_name',
-                        name: 'company_name'
+                        data: 'name',
+                        name: 'Name'
                     },
                     {
-                        data: 'location',
-                        name: 'location'
+                        data: 'email',
+                        name: 'Email'
+                    },
+                    {
+                        data: 'mobile',
+                        name: 'Mobile'
                     },
                     {
                         data: 'salary',
-                        name: 'salary'
+                        name: 'Salary'
                     },
                     {
-                        data: 'status',
-                        name: 'status'
+                        data: 'skills',
+                        name: 'Skills'
                     },
                     {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
+                        data: 'qualifications',
+                        name: 'Qualifications'
+                    },
+                    {
+                        data: 'experience',
+                        name: 'Experience'
+                    },
+                    {
+                        data: 'address',
+                        name: 'Address'
+                    },
+                    {
+                        data: 'about',
+                        name: 'About'
                     }
                 ]
-            });
-
-            $(document).on('click', '.tableDelete', function() {
-                if (confirm('Are you sure you want to delete this job post?')) {
-                    var url = $(this).data('url');
-                    $.ajax({
-                        url: url,
-                        type: 'DELETE',
-                        data: {
-                            _token: '{{ csrf_token() }}'
-                        },
-                        success: function(response) {
-                            $('#jobPostList').DataTable().ajax.reload();
-                        }
-                    });
-                }
             });
         });
     </script>
