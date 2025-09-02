@@ -44,6 +44,16 @@ class FrontendController extends Controller
         $jobCategories = JobCategory::withCount('jobs')->get();
         return view('website.category',compact('jobCategories'));
     }
+
+    public function categoryDetails($slug)
+    {
+        $category = JobCategory::where('slug', $slug)->first();
+        if (!$category) {
+            abort(404, 'Category not found');
+        }
+        $jobs = $category->jobs()->where('status', 'active')->get();
+        return view('website.category_details', compact('category', 'jobs'));
+    }
     
     // Function for job post page
     public function jobPost()

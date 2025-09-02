@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="content mt-6">
-                            <a href="#" class="title text-lg font-semibold hover:text-emerald-600">{{ $jobCategory->title }}</a>
+                            <a href="{{ route('job.category', $jobCategory->slug) }}" class="title text-lg font-semibold hover:text-emerald-600">{{ $jobCategory->title }}</a>
                             <p class="text-slate-400 mt-3">{{ $jobCategory->jobs_count }} Jobs</p>
                         </div>
                     </div><!--end content-->

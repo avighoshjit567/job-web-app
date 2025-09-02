@@ -25,24 +25,24 @@
         <div class="container z-1">
             <div class="d-flex" id="reserve-form">
                 <div class="md:w-5/6 mx-auto">
-
+                    
                 </div>
             </div><!--end grid-->
         </div><!--end container-->
 
         <div class="container mt-10">
             <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
-                @foreach ($jobPosts as $jobPost)
+                @foreach ($jobs as $jobPost)
                     <div
                         class="group p-6 rounded-lg border border-emerald-600/20 dark:border-emerald-600/40 bg-white dark:bg-slate-900 hover:bg-emerald-600/[0.02] hover:dark:bg-emerald-600/5 hover:shadow-md hover:shadow-emerald-600/5 transition-all duration-500">
                         <div class="flex justify-between items-start">
                             <div>
                                 <div
                                     class="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 rounded-full mb-2">
-                                    @if ($jobPost->image)
-                                        <img src="{{ asset($jobPost->image) }}" class="size-8" alt="">
+                                    @if($jobPost->image)
+                                    <img src="{{ asset($jobPost->image) }}" class="size-8" alt="">
                                     @else
-                                        <img src="https://placehold.co/32x32" class="size-8" alt="">
+                                    <img src="https://placehold.co/32x32" class="size-8" alt="">
                                     @endif
                                 </div>
                                 <a href="{{ route('job.category', $jobPost->category->slug) }}"
@@ -63,7 +63,7 @@
                         <div class="mt-3">
                             <a href="{{ route('job.post.details', $jobPost->slug) }}"
                                 class="text-xl hover:text-emerald-600 font-semibold transition-all duration-500">{{ $jobPost->title }}</a>
-                            <p class="text-slate-400 mt-2">Looking for an experienced Web Designer for an our company.</p>
+                            <p class="text-slate-400 mt-2">Looking for an experienced {{ $jobPost->title }} for an our company.</p>
 
                             <div class="mt-3">
                                 <a href="#">
@@ -87,7 +87,7 @@
 
             </div><!--end grid-->
 
-
+            
         </div><!--end container-->
 
         <div class="container md:mt-24 mt-16">

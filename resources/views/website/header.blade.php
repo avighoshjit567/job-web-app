@@ -47,7 +47,7 @@
                     <button data-dropdown-toggle="dropdown" class="dropdown-toggle items-center" type="button">
                         <span
                             class="size-9 inline-flex items-center text-center justify-center text-base font-semibold tracking-wide border align-middle transition duration-500 ease-in-out rounded-full bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white">
-                            @if (Auth::user()->userInfo->image)
+                            @if (Auth::user()->userInfo && Auth::user()->userInfo->image)
                                 <img src="{{ asset(Auth::user()->userInfo->image) }}"
                                     class="rounded-full"
                                     id="profile-image" alt="">
