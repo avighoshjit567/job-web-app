@@ -174,12 +174,15 @@ class JobPostController extends Controller
             ->editColumn('job_post', function ($data) {
                 return $data->jobPost->title ?? '';
             })
+            ->editColumn('cv', function ($data) {
+                return '<a href="'.asset($data->cv).'" target="_blank">View CV</a>';
+            })
             ->addColumn('action', function ($data) {
                 $htmlData = '<a href="javascript:void(0)" data-id="'.$data->id.'" class="btn btn-info btn-sm tableEdit">Edit</a>&nbsp;';
                 $htmlData .= '<a href="javascript:void(0)" data-id="'.$data->id.'" class="btn btn-danger btn-sm tableDelete">Delete</a>';
                 return $htmlData;
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['action','cv'])
             ->make(true);
     }
 

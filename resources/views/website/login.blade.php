@@ -73,7 +73,7 @@
                                         placeholder="Password:">
                                 </div>
 
-                                <div class="flex justify-between mb-4">
+                                {{-- <div class="flex justify-between mb-4">
                                     <div class="inline-flex items-center mb-0">
                                         <input
                                             class="form-checkbox rounded size-4 appearance-none rounded border border-gray-200 dark:border-gray-800 accent-green-600 checked:appearance-auto dark:accent-green-600 focus:border-green-300 focus:ring-0 focus:ring-offset-0 focus:ring-green-200 focus:ring-opacity-50 me-2"
@@ -83,7 +83,7 @@
                                     </div>
                                     <p class="text-slate-400 mb-0"><a href="#" class="text-slate-400">Forgot
                                             password ?</a></p>
-                                </div>
+                                </div> --}}
 
                                 <div class="mb-4">
                                     <input type="submit"

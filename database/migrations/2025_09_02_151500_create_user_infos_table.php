@@ -11,21 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('job_applies', function (Blueprint $table) {
+        Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
             $table->string('name',255)->nullable();
             $table->string('email',255)->nullable();
             $table->string('mobile',255)->nullable();
-            $table->longText('about')->nullable();
-            $table->decimal('salary', 10, 2)->nullable();
-            $table->string('skills',255)->nullable();
-            $table->string('qualifications',50)->nullable();
-            $table->string('experience',250)->nullable(); 
-            $table->string('address',250)->nullable(); 
-            $table->string('cv',255)->nullable();
-            $table->string('status',50)->default('active'); 
+            $table->longText('bio')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->string('image',50)->nullable();
+            $table->string('address',250)->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); 
-            $table->foreignId('job_id')->constrained('job_posts')->onDelete('cascade'); 
             $table->timestamps();
             $table->softDeletes();
         });
@@ -36,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('job_applies');
+        Schema::dropIfExists('user_infos');
     }
 };

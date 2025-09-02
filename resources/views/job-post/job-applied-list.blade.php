@@ -35,6 +35,7 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th>Job Position</th>
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Mobile</th>
@@ -44,6 +45,7 @@
                                             <th>Experience</th>
                                             <th>Address</th>
                                             <th>Bio</th>
+                                            <th>CV</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -109,6 +111,10 @@
                     {
                         data: 'about',
                         name: 'About'
+                    },
+                    {
+                        data: 'cv',
+                        name: 'CV'
                     }
                 ]
             });

@@ -37,6 +37,9 @@ Route::middleware(['auth','verified'])->group(function () {
 
     Route::get('/job-applied/list', [JobPostController::class, 'jobAppliedList'])->name('job.applied.list');
     Route::get('/job-applied/list-data', [JobPostController::class, 'jobAppliedListData'])->name('job.applied.list.data');
+    // For User
+    Route::get('user/profile', [FrontendController::class, 'userProfile'])->name('user.profile');
+    Route::post('user/profile', [FrontendController::class, 'userProfileUpdate'])->name('user.profile.update');
 
 });
 
@@ -50,6 +53,7 @@ Route::get('/job-post/{slug?}', [FrontendController::class, 'jobPostDetails'])->
 
 Route::get('/job-apply/{slug?}', [FrontendController::class, 'jobApply'])->name('job.apply');
 Route::post('/job-apply-store', [FrontendController::class, 'jobApplyStore'])->name('job.apply.store');
+Route::get('/job-apply/thankyou/{slug?}', [FrontendController::class, 'thankYou'])->name('thankyou');
 
 Route::get('/user/login', [FrontendController::class, 'login'])->name('user.login');
 Route::post('/user/login-process', [FrontendController::class, 'loginProcess'])->name('user.login.process');

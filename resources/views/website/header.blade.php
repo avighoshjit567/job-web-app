@@ -46,14 +46,26 @@
                 <li class="dropdown inline-block relative ps-1">
                     <button data-dropdown-toggle="dropdown" class="dropdown-toggle items-center" type="button">
                         <span
-                            class="size-9 inline-flex items-center text-center justify-center text-base font-semibold tracking-wide border align-middle transition duration-500 ease-in-out rounded-full bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white"><img
-                                src="{{ asset('web-assets/images/team/01.jpg') }}" class="rounded-full"
-                                alt=""></span>
+                            class="size-9 inline-flex items-center text-center justify-center text-base font-semibold tracking-wide border align-middle transition duration-500 ease-in-out rounded-full bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white">
+                            @if (Auth::user()->userInfo->image)
+                                <img src="{{ asset(Auth::user()->userInfo->image) }}"
+                                    class="rounded-full"
+                                    id="profile-image" alt="">
+                            @else
+                                <img src="{{ asset('web-assets/images/team/01.jpg') }}" class="rounded-full" alt="">
+                            @endif
+                            
+                        </span>
                     </button>
                     <!-- Dropdown menu -->
                     <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 hidden"
                         onclick="event.stopPropagation();">
                         <ul class="py-2 text-start">
+                            <li>
+                                <a href="{{ route('user.profile') }}"
+                                    class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i
+                                        data-feather="user" class="size-4 me-2"></i>Profile</a>
+                            </li>
                             <li>
                                 <a href="{{ route('user.logout') }}"
                                     class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i

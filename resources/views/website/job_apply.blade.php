@@ -39,8 +39,20 @@
             <div class="lg:flex justify-center">
                 <div class="lg:w-2/3">
                     <div class="p-6 bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 rounded-md">
-                        <form class="text-start" action="{{ route('job.apply.store') }}" method="POST">
+                        <form class="text-start" action="{{ route('job.apply.store') }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
+                            <div class="mb-4">
+                                <div class="flex items-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+                                    role="alert">
+                                    <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span class="block">{{ session('success') }}</span>
+                                </div>
+                            </div>
                             <div class="grid grid-cols-1">
                                 <h5 class="text-lg font-semibold">Applicant Details:</h5>
                             </div>
@@ -51,18 +63,27 @@
                                     <input id="RegisterName" type="text" name="name"
                                         class="w-full py-2 px-3 text-[14px] border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded h-10 outline-none bg-transparent mt-1"
                                         placeholder="John Doe">
+                                    @error('name')
+                                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-span-12 text-start">
                                     <label class="font-semibold" for="RegisterEmail">Email</label>
                                     <input id="RegisterEmail" type="email" name="email"
                                         class="w-full py-2 px-3 text-[14px] border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded h-10 outline-none bg-transparent mt-1"
                                         placeholder="john@example.com">
+                                    @error('email')
+                                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-span-12 text-start">
                                     <label class="font-semibold" for="RegisterMobile">Mobile</label>
                                     <input id="RegisterMobile" type="text" name="mobile"
                                         class="w-full py-2 px-3 text-[14px] border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded h-10 outline-none bg-transparent mt-1"
                                         placeholder="+1234567890">
+                                    @error('mobile')
+                                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
 
                                 <div class="col-span-12 text-start">
@@ -70,6 +91,9 @@
                                     <textarea name="about" id="comments"
                                         class="w-full py-2 px-3 text-[14px] border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded h-28 outline-none bg-transparent mt-1 textarea"
                                         placeholder="Write About You :"></textarea>
+                                    @error('about')
+                                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
 
 
@@ -79,6 +103,9 @@
                                     <input id="RegisterName" type="number" step="any" name="salary"
                                         class="w-full py-2 px-3 text-[14px] border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded h-10 outline-none bg-transparent mt-1"
                                         placeholder="Expected Salary">
+                                    @error('salary')
+                                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -92,6 +119,9 @@
                                     <input id="Skillname" type="text" name="skills"
                                         class="w-full py-2 px-3 text-[14px] border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded h-10 outline-none bg-transparent mt-1"
                                         placeholder="Web Developer">
+                                    @error('skills')
+                                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
 
                                 <div class="md:col-span-6 col-span-12 text-start">
@@ -99,6 +129,9 @@
                                     <input id="Qualificationname" type="text" name="qualifications"
                                         class="w-full py-2 px-3 text-[14px] border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded h-10 outline-none bg-transparent mt-1"
                                         placeholder="Qualifications">
+                                    @error('qualifications')
+                                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
 
                                 <div class="md:col-span-6 col-span-12 text-start">
@@ -106,6 +139,9 @@
                                     <input id="Experiencename" type="text" name="experience"
                                         class="w-full py-2 px-3 text-[14px] border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded h-10 outline-none bg-transparent mt-1"
                                         placeholder="Experience">
+                                    @error('experience')
+                                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
 
                             </div>
@@ -120,6 +156,21 @@
                                     <input id="Address" type="text" name="address"
                                         class="w-full py-2 px-3 text-[14px] border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded h-10 outline-none bg-transparent mt-1"
                                         placeholder="Address">
+                                    @error('address')
+                                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-12 gap-4 mt-4">
+                                <div class="col-span-12 text-start">
+                                    <label class="font-semibold" for="CV">CV/Resume:</label>
+                                    <input id="CV" type="file" name="cv"
+                                        class="w-full py-2 px-3 text-[14px] border border-gray-200 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded h-10 outline-none bg-transparent mt-1"
+                                        placeholder="Upload your CV/Resume">
+                                    @error('cv')
+                                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
 
