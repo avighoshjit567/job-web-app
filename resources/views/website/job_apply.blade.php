@@ -42,17 +42,7 @@
                         <form class="text-start" action="{{ route('job.apply.store') }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
-                            <div class="mb-4">
-                                <div class="flex items-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
-                                    role="alert">
-                                    <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span class="block">{{ session('success') }}</span>
-                                </div>
-                            </div>
+                            
                             <div class="grid grid-cols-1">
                                 <h5 class="text-lg font-semibold">Applicant Details:</h5>
                             </div>
