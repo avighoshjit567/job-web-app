@@ -280,4 +280,17 @@ class FrontendController extends Controller
         return redirect()->back()->with('success', 'Profile updated successfully.');
     }
 
+    // Function for search page
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+        $jobPosts = JobPost::where('status', 'active')
+            ->where(function ($query) use ($keyword) {
+                $query->where('title', 'like', '%' . $keyword . '%')
+                      ->orWhere('description', 'like', '%' . $keyword . '%');
+            })
+            ->get();
+        return view('website.search_results', compact('jobPosts', 'keyword'));
+    }
+
 }

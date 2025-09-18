@@ -51,6 +51,7 @@ Route::get('/category', [FrontendController::class, 'category'])->name('category
 Route::get('/category/{slug?}', [FrontendController::class, 'categoryDetails'])->name('job.category');
 Route::get('/job-post', [FrontendController::class, 'jobPost'])->name('job.post');
 Route::get('/job-post/{slug?}', [FrontendController::class, 'jobPostDetails'])->name('job.post.details');
+Route::get('/search', [FrontendController::class, 'search'])->name('search');
 
 Route::get('/job-apply/{slug?}', [FrontendController::class, 'jobApply'])->name('job.apply');
 Route::post('/job-apply-store', [FrontendController::class, 'jobApplyStore'])->name('job.apply.store');

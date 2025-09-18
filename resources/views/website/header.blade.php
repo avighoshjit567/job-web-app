@@ -37,9 +37,11 @@
             <li class="inline-block mb-0">
                 <div class="relative top-[3px]">
                     <i class="uil uil-search text-lg absolute top-[3px] end-3"></i>
-                    <input type="text"
-                        class="py-2 px-3 text-[14px] border border-gray-100 dark:border-gray-800 dark:text-slate-200 rounded outline-none bg-transparent h-9 !pe-10 rounded-3xl sm:w-44 w-36 bg-white dark:bg-slate-900"
-                        name="s" id="searchItem" placeholder="Search...">
+                    <form action="{{ route('search') }}" method="GET">
+                        <input type="text"
+                            class="py-2 px-3 text-[14px] border border-gray-100 dark:border-gray-800 dark:text-slate-200 rounded outline-none bg-transparent h-9 !pe-10 rounded-3xl sm:w-44 w-36 bg-white dark:bg-slate-900"
+                            id="searchItem" name="keyword" placeholder="Search...">
+                    </form>
                 </div>
             </li>
             @if (Auth::check() && Auth::user()->type == 'user')
@@ -48,13 +50,13 @@
                         <span
                             class="size-9 inline-flex items-center text-center justify-center text-base font-semibold tracking-wide border align-middle transition duration-500 ease-in-out rounded-full bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white">
                             @if (Auth::user()->userInfo && Auth::user()->userInfo->image)
-                                <img src="{{ asset(Auth::user()->userInfo->image) }}"
-                                    class="rounded-full"
+                                <img src="{{ asset(Auth::user()->userInfo->image) }}" class="rounded-full"
                                     id="profile-image" alt="">
                             @else
-                                <img src="{{ asset('web-assets/images/team/01.jpg') }}" class="rounded-full" alt="">
+                                <img src="{{ asset('web-assets/images/team/01.jpg') }}" class="rounded-full"
+                                    alt="">
                             @endif
-                            
+
                         </span>
                     </button>
                     <!-- Dropdown menu -->
