@@ -12,19 +12,19 @@
                         <p class="text-slate-400">Find Jobs, Employment & Career Opportunities. Some of the companies we've
                             helped recruit excellent applicants over the years.</p>
 
-                        <form class="mt-6">
+                        <form class="mt-6" action="{{ route('search') }}" method="GET">
                             <div class="grid grid-cols-1">
                                 <div class="mb-4">
                                     <label class="form-label font-medium">Search :</label>
                                     <div class="filter-search-form relative mt-2">
                                         <i class="uil uil-briefcase-alt icons"></i>
-                                        <input name="name" type="text" id="job-keyword"
+                                        <input name="keyword" type="text" id="job-keyword"
                                             class="form-input filter-input-box !bg-gray-50 dark:!bg-slate-800"
                                             placeholder="Search your Keywords">
                                     </div>
                                 </div>
 
-                                <div class="mb-4">
+                                <div class="mb-4" style="display: none">
                                     <label class="form-label font-medium">Location :</label>
                                     <div class="filter-search-form relative mt-2">
                                         <i class="uil uil-map-marker icons"></i>
@@ -49,13 +49,12 @@
                                     <label class="form-label font-medium">Job Type :</label>
                                     <div class="filter-search-form relative mt-2">
                                         <i class="uil uil-briefcase-alt icons"></i>
-                                        <select class="form-select" data-trigger name="choices-type" id="choices-type"
+                                        <select class="form-select" name="employment_type" data-trigger name="choices-type" id="choices-type"
                                             aria-label="Default select example">
-                                            <option selected="" value="1">Full Time</option>
-                                            <option value="2">Part Time</option>
-                                            <option value="3">Freelancer</option>
-                                            <option value="4">Remote Work</option>
-                                            <option value="5">Office Work</option>
+                                            <option selected value="Full time">Full time</option>
+                                            <option value="Part time">Part time</option>
+                                            <option value="Project Basis">Project Basis</option>
+                                            <option value="Remote Work">Remote Work</option>
                                         </select>
                                     </div>
                                 </div>

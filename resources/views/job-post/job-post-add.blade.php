@@ -105,9 +105,10 @@
                                         <div class="mb-3">
                                             <label>Employment Type</label>
                                             <select class="form-select" name="employment_type">
-                                                <option>Full time</option>
-                                                <option>Part time</option>
-                                                <option>Project Basis</option>
+                                                <option value="Full time">Full time</option>
+                                                <option value="Part time">Part time</option>
+                                                <option value="Project Basis">Project Basis</option>
+                                                <option value="Remote Work">Remote Work</option>
                                             </select>
                                             @error('employment_type')
                                             <div class="text-danger mt-1">{{ $message }}</div>

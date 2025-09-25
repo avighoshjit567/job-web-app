@@ -284,12 +284,16 @@ class FrontendController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->input('keyword');
+        $employment_type = $request->input('employment_type');
         $jobPosts = JobPost::where('status', 'active')
             ->where(function ($query) use ($keyword) {
                 $query->where('title', 'like', '%' . $keyword . '%')
                       ->orWhere('description', 'like', '%' . $keyword . '%');
-            })
-            ->get();
+            });
+        if ($employment_type) {
+            $jobPosts->where('employment_type', $employment_type);
+        }
+        $jobPosts = $jobPosts->get();
         return view('website.search_results', compact('jobPosts', 'keyword'));
     }
 
